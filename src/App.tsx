@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [screenValue, setScreenValue] = useState<string>("");
-  const [screenResult, setScreenResult] = useState<string>("0");
+  const [screenResult, setScreenResult] = useState<string>("");
   const [operation, setOperation] = useState<boolean>(false);
 
   const addDigitScreen = (digit: string) => {
@@ -23,12 +23,11 @@ function App() {
     if (operation) {
       setOperation(false);
       setScreenValue(digit.toString());
-      setScreenResult(digit);
+
       return;
     }
 
-    setScreenValue((prevScreenValue) => prevScreenValue + digit.toString());
-    setScreenResult(digit);
+    setScreenResult((prevDigit) => prevDigit + digit.toString());
     return;
   };
 
